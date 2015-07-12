@@ -35,7 +35,6 @@ class ViewController: UIViewController {
         ageTextField.resignFirstResponder()
         ageTextField.text = ""
         
-        
     }
     
     
