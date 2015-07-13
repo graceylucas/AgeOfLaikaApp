@@ -24,7 +24,7 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    // This IBAction lets users enter any number (age) into the top text field and convert it into dog years
+    // This IBAction lets user enter a number (age) into the top text field and convert it into dog years
     
     @IBAction func convertToDogYearsButtonPressed(sender: UIButton) {
         let humanAgeFromTextField = ageTextField.text.toInt()!
@@ -37,7 +37,24 @@ class ViewController: UIViewController {
         
     }
     
+    // This button lets user enter a number (age) into the top text field and convert it more precisely into dog years
     
+    @IBAction func convertToRealDogYearsButtonPressed(sender: UIButton) {
+        let stringFromTextField = ageTextField.text
+        let doubleFromTextField = Double((stringFromTextField as NSString).doubleValue)
+        
+        var realDogYears:Double
+        
+        if doubleFromTextField > 2 {
+            realDogYears = 10.5 * 2 + (doubleFromTextField - 2) * 4
+        }
+        else {
+            realDogYears = doubleFromTextField * 10.5
+        }
+        dogYearsLabel.text = "\(realDogYears)" + " in real dog years"
+        dogYearsLabel.hidden = false
+        ageTextField.resignFirstResponder()
+    }
 
 }
 
